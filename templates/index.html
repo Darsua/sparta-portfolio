@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darsu's Portfolio</title>
+    <link rel="stylesheet" href="static/styles.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul class="nav-list">
+                <li><a href="/" class="nav-link"><u>Home</u></a></li>
+                <li><a href="about" class="nav-link">About</a></li>
+                <li><a href="projects" class="nav-link">Projects</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div style="margin:auto; padding-right: 20px; max-width: 90%;" class="fade-in">
+        <div class="container">
+            <img src="static/avatar.png" class="avatar">
+            <div>
+                <div style="height: auto;">
+                    <h1 class="name">Hi, I'm </h1>
+                    <h1 class="highlight">Darrel</h1>
+                </div>
+                <hr>
+                <p class="description">
+                    I'm currently a student at the <b>Bandung Institute of Technology</b>, majoring in <b>Informatics Engineering</b>. I'm always looking for opportunities to learn and grow.
+                </p>
+                <div>
+                    <a href="https://github.com/darsuas" target="_blank" class="social-link">
+                        <img src="https://cdn-icons-png.flaticon.com/256/25/25231.png" alt="GitHub" class="social-icon">
+                    </a>
+                    <a href="https://www.linkedin.com/in/darrel-adinarya-b298b6286/" target="_blank" class="social-link">
+                        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" class="social-icon">
+                    </a>
+                    <a href="https://twitter.com/darsuas" target="_blank" class="social-link">
+                        <img src="https://cdn-icons-png.flaticon.com/512/124/124021.png" alt="Twitter" class="social-icon">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <img src="static/sparta.svg" class="fixed-images">
+    <img src="static/syntax.jpg" class="fixed-images syntax-image">
+    <div class="spotlight"></div>
+    <div class="arrow" onclick="scrollToAbout()" data-tooltip="About" style="right: 20px;"></div>
+    <script>
+        document.addEventListener('mousemove', function (e) {
+            const spotlight = document.querySelector('.spotlight');
+            spotlight.style.backgroundPosition = `${e.clientX}px ${e.clientY}px`;
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('.fade-in').forEach(function (element) {
+                element.classList.add('visible');
+            });
+        });
+        function scrollToAbout() {
+            window.location.href = "/about";
+        }
+    </script>
+</body>
+
+</html>

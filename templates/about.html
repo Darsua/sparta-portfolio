@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darsu's Portfolio</title>
+    <link rel="stylesheet" href="static/styles.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <style>
+        body {
+            background-image: url('static/kagamine.jpg');
+            background-size: 50vw;
+        }
+        @media (min-aspect-ratio: 1) {
+            .grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                gap: 20px;
+            }
+        }
+        @media (max-aspect-ratio: 1) {
+            .fixed-images {
+                right: -100px;
+                transition: right 0.3s ease-out;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul class="nav-list">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="about" class="nav-link"><u>About</u></a></li>
+                <li><a href="projects" class="nav-link">Projects</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div style="margin:auto; padding-right: 20px; max-width: 90%;" class="fade-in">
+        <div style="display: flex; justify-content: space-between;">
+            <img src="/static/question.jpg" class="whoami">
+            <div class="aboutme">
+                <h1 class="heading">Who Am I?</h1>
+                <p class="paragraph">
+                    I'm a student at Institut Teknologi Bandung, majoring in Informatics Engineering. My journey in this field has been fueled by a passion for computers that started in my childhood. From an early age, I've been fascinated by the inner workings of technology, and this curiosity has grown into a deep interest in everything from coding to the complexities of software and hardware systems.
+                </p>
+                <p class="paragraph">
+                    At ITB, I’m constantly seeking to expand my knowledge and hone my skills in computer science. Whether it's diving into challenging programming projects, exploring cybersecurity, or experimenting with new technologies, I find myself driven by my enthusiasm for the digital world. My studies are not just about earning a degree; they are about pursuing what I love and preparing myself for a future in the tech industry where I can turn my passion into innovation.
+                </p>
+            </div>
+        </div>
+        <div class="aboutme">
+            <h1 class="heading">Skills</h1>
+            <div class="grid">
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxe6IR3EKgALq0lEUvpW3GmPH8rpAv1cK0_w&s" alt="Python">
+                    <p>Python</p>
+                </div>
+                <div class="card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Git_icon.svg/2048px-Git_icon.svg.png" alt="Git">
+                    <p>Git</p>
+                </div>
+                <div class="card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="HTML">
+                    <p>HTML</p>
+                </div>
+                <div class="card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/62/CSS3_logo.svg" alt="CSS">
+                    <p>CSS</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <img src="static/sparta.svg" class="fixed-images">
+    <img src="static/syntax.jpg" class="fixed-images syntax-image">
+    <div class="spotlight"></div>
+    <div class="arrow" onclick="scrollToProjects()" data-tooltip="Projects" style="right: 20px;"></div>
+    <script>
+        document.addEventListener('mousemove', function (e) {
+            const spotlight = document.querySelector('.spotlight');
+            spotlight.style.backgroundPosition = `${e.clientX}px ${e.clientY}px`;
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('.fade-in').forEach(function (element) {
+                element.classList.add('visible');
+            });
+        });
+        function scrollToProjects() {
+            window.location.href = "/projects";
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darsu's Portfolio</title>
+    <link rel="stylesheet" href="static/styles.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul class="nav-list">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="about" class="nav-link">About</a></li>
+                <li><a href="projects" class="nav-link"><u>Projects</u></a></li>
+            </ul>
+        </nav>
+    </header>
+    <div style="margin:auto; padding-right: 20px; max-width: 90%;" class="fade-in">
+  
+    </div>
+    <img src="static/sparta.svg" class="fixed-images">
+    <img src="static/syntax.jpg" class="fixed-images syntax-image">
+    <div class="spotlight"></div>
+    <script>
+        document.addEventListener('mousemove', function (e) {
+            const spotlight = document.querySelector('.spotlight');
+            spotlight.style.backgroundPosition = `${e.clientX}px ${e.clientY}px`;
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('.fade-in').forEach(function (element) {
+                element.classList.add('visible');
+            });
+        });
+    </script>
+</body>
+
+</html>
